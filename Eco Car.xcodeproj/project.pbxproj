@@ -3,19 +3,27 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A092368668585E84C52128B /* Pods_Eco_Car.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38B52F8A8D34E5A1CA78BDE9 /* Pods_Eco_Car.framework */; };
+		D756779824A33B0700A0A0F1 /* carLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = D756779724A33B0700A0A0F1 /* carLogo.png */; };
 		D7AEE9F724A1D3530089C9F5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7AEE9F624A1D3530089C9F5 /* AppDelegate.swift */; };
 		D7AEE9F924A1D3530089C9F5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7AEE9F824A1D3530089C9F5 /* SceneDelegate.swift */; };
 		D7AEE9FB24A1D3530089C9F5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7AEE9FA24A1D3530089C9F5 /* ViewController.swift */; };
 		D7AEE9FE24A1D3530089C9F5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D7AEE9FC24A1D3530089C9F5 /* Main.storyboard */; };
 		D7AEEA0024A1D3590089C9F5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D7AEE9FF24A1D3590089C9F5 /* Assets.xcassets */; };
 		D7AEEA0324A1D3590089C9F5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D7AEEA0124A1D3590089C9F5 /* LaunchScreen.storyboard */; };
+		D7AEEA0B24A23C370089C9F5 /* ProxyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7AEEA0A24A23C370089C9F5 /* ProxyManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		37D66803A2BD5FB8ED31139E /* Pods-Eco Car.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Eco Car.release.xcconfig"; path = "Target Support Files/Pods-Eco Car/Pods-Eco Car.release.xcconfig"; sourceTree = "<group>"; };
+		38B52F8A8D34E5A1CA78BDE9 /* Pods_Eco_Car.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Eco_Car.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BB59731822CCE06DD6FC48FE /* Pods-Eco Car.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Eco Car.debug.xcconfig"; path = "Target Support Files/Pods-Eco Car/Pods-Eco Car.debug.xcconfig"; sourceTree = "<group>"; };
+		D756779724A33B0700A0A0F1 /* carLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = carLogo.png; sourceTree = "<group>"; };
+		D75677A624A38C7D00A0A0F1 /* SmartDeviceLink.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SmartDeviceLink.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7AEE9F324A1D3530089C9F5 /* Eco Car.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Eco Car.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7AEE9F624A1D3530089C9F5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D7AEE9F824A1D3530089C9F5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -24,6 +32,7 @@
 		D7AEE9FF24A1D3590089C9F5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D7AEEA0224A1D3590089C9F5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D7AEEA0424A1D3590089C9F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D7AEEA0A24A23C370089C9F5 /* ProxyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProxyManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +40,38 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A092368668585E84C52128B /* Pods_Eco_Car.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		567992AA925DDA2DB56C9CAC /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				BB59731822CCE06DD6FC48FE /* Pods-Eco Car.debug.xcconfig */,
+				37D66803A2BD5FB8ED31139E /* Pods-Eco Car.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		9B22E6F80A34573B46D137EB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D75677A624A38C7D00A0A0F1 /* SmartDeviceLink.framework */,
+				38B52F8A8D34E5A1CA78BDE9 /* Pods_Eco_Car.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		D7AEE9EA24A1D3530089C9F5 = {
 			isa = PBXGroup;
 			children = (
 				D7AEE9F524A1D3530089C9F5 /* Eco Car */,
 				D7AEE9F424A1D3530089C9F5 /* Products */,
+				567992AA925DDA2DB56C9CAC /* Pods */,
+				9B22E6F80A34573B46D137EB /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -59,8 +89,10 @@
 				D7AEE9F624A1D3530089C9F5 /* AppDelegate.swift */,
 				D7AEE9F824A1D3530089C9F5 /* SceneDelegate.swift */,
 				D7AEE9FA24A1D3530089C9F5 /* ViewController.swift */,
+				D7AEEA0A24A23C370089C9F5 /* ProxyManager.swift */,
 				D7AEE9FC24A1D3530089C9F5 /* Main.storyboard */,
 				D7AEE9FF24A1D3590089C9F5 /* Assets.xcassets */,
+				D756779724A33B0700A0A0F1 /* carLogo.png */,
 				D7AEEA0124A1D3590089C9F5 /* LaunchScreen.storyboard */,
 				D7AEEA0424A1D3590089C9F5 /* Info.plist */,
 			);
@@ -74,9 +106,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D7AEEA0724A1D3590089C9F5 /* Build configuration list for PBXNativeTarget "Eco Car" */;
 			buildPhases = (
+				97D30D462CD271BB9FA9C6A3 /* [CP] Check Pods Manifest.lock */,
 				D7AEE9EF24A1D3530089C9F5 /* Sources */,
 				D7AEE9F024A1D3530089C9F5 /* Frameworks */,
 				D7AEE9F124A1D3530089C9F5 /* Resources */,
+				1B25CD438E0511AD0EC612DA /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -126,12 +160,55 @@
 			buildActionMask = 2147483647;
 			files = (
 				D7AEEA0324A1D3590089C9F5 /* LaunchScreen.storyboard in Resources */,
+				D756779824A33B0700A0A0F1 /* carLogo.png in Resources */,
 				D7AEEA0024A1D3590089C9F5 /* Assets.xcassets in Resources */,
 				D7AEE9FE24A1D3530089C9F5 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1B25CD438E0511AD0EC612DA /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Eco Car/Pods-Eco Car-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Eco Car/Pods-Eco Car-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Eco Car/Pods-Eco Car-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		97D30D462CD271BB9FA9C6A3 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Eco Car-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		D7AEE9EF24A1D3530089C9F5 /* Sources */ = {
@@ -140,6 +217,7 @@
 			files = (
 				D7AEE9FB24A1D3530089C9F5 /* ViewController.swift in Sources */,
 				D7AEE9F724A1D3530089C9F5 /* AppDelegate.swift in Sources */,
+				D7AEEA0B24A23C370089C9F5 /* ProxyManager.swift in Sources */,
 				D7AEE9F924A1D3530089C9F5 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -282,11 +360,13 @@
 		};
 		D7AEEA0824A1D3590089C9F5 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BB59731822CCE06DD6FC48FE /* Pods-Eco Car.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5AE63N5Y3X;
 				INFOPLIST_FILE = "Eco Car/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -300,11 +380,13 @@
 		};
 		D7AEEA0924A1D3590089C9F5 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 37D66803A2BD5FB8ED31139E /* Pods-Eco Car.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5AE63N5Y3X;
 				INFOPLIST_FILE = "Eco Car/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

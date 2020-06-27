@@ -1,0 +1,6 @@
+framework module Pods_Eco_Car {
+  umbrella header "Pods-Eco Car-umbrella.h"
+
+  export *
+  module * { export * }
+}
