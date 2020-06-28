@@ -8,5 +8,7 @@ target 'Eco Car' do
   # Pods for Eco Car
 
   pod ‘SmartDeviceLink’
+  pod ‘SmartDeviceLink/Swift’
+  
 
 end

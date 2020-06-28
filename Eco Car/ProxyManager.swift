@@ -16,11 +16,11 @@ class ProxyManager: NSObject {
     private let appName = "Eco Car"
     private let appId = "1505"
     private let appIpAddress = "m.sdl.tools"
-    private let appPort: UInt16 = 13625
+    private let appPort: UInt16 = 17215
     
 
     // Manager
-    fileprivate var sdlManager: SDLManager!
+    var sdlManager = SDLManager()
 
     // Singleton
     static let sharedManager = ProxyManager()
@@ -59,12 +59,11 @@ class ProxyManager: NSObject {
         let lockScreenConfiguration = SDLLockScreenConfiguration.enabled()
         lockScreenConfiguration.displayMode = .always
 
-        let isAllowed = sdlManager.permissionManager.isRPCAllowed("SubscribeVehicleData")
-
-        print("isAlowed: \(isAllowed)")
 
 
         self.sdlManager.subscribe(to: .SDLDidReceiveVehicleData, observer: self, selector: #selector(self.vehicleDataAvailable(_:)))
+        
+        sdlManager.screenManager.textField1 = "Welcome"
 
     }
 
@@ -192,6 +191,11 @@ extension ProxyManager {
         let vehicleInfo = SDLVehicleType()
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "uiInfoUpdate"), object: nil, userInfo: ["vehicleInfo" : vehicleInfo])
 
+    }
+    
+    
+    func displayOnManticore() {
+        sdlManager.screenManager.textField1 = ""
     }
     
     
