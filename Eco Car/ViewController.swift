@@ -117,7 +117,7 @@ class ViewController: UIViewController {
             finalFuel : \(startF) - \(endF)
             """)
         let tripDistance = endO - startO
-        let fuelUsed = startF - endF
+        let fuelUsed = (startF - endF)/3785411.784
         let tripAvg = tripDistance/fuelUsed
         print("finalOdo : \(tripDistance)\nfinalFuel : \(fuelUsed)")
         
@@ -129,16 +129,20 @@ class ViewController: UIViewController {
                 self.pm.sdlManager.screenManager.textField2 = result
             }
             
-            // MARK: Sending Trip Details
-            let params1 = "tag=addcartripdetails&regId=1&carId=1&startodomter=\(self.startO)&endodometer=\(self.endO)&fuelused=\(fuelUsed)&tripavg=\(tripAvg)&tripstartdatetime=\(self.startTime)&tripenddatetime=\(self.endTime)"
-
-            self.apiCalls(parameters: params1) { (response) in
-
-                print("Trip Details Sent: \(response)")
-
-            }
-            
+            self.sendTripDetails(fuelUsed: fuelUsed, tripAvg: tripAvg)
             self.sendVehicleInfo()
+        }
+    }
+    
+    
+    func sendTripDetails(fuelUsed: Double, tripAvg: Double) {
+        // MARK: Sending Trip Details
+        let params1 = "tag=addcartripdetails&regId=1&carId=1&startodomter=\(self.startO)&endodometer=\(self.endO)&fuelused=\(fuelUsed)&tripavg=\(tripAvg)&tripstartdatetime=\(self.startTime)&tripenddatetime=\(self.endTime)"
+
+        self.apiCalls(parameters: params1) { (response) in
+
+            print("Trip Details Sent: \(response)")
+
         }
     }
     
@@ -209,21 +213,7 @@ class ViewController: UIViewController {
         task.resume()
         
     }
-        
-    
-    @IBAction func buttonPress(_ sender: UIButton) {
-        
-//        let param1 = "tag=addcartripdetails&regId=1&carId=1&startodomter=15.534275000000001&endodometer=15.534275000000001&fuelused=3&tripavg=3&tripstartdatetime=2020/06/27 19:07:11&tripenddatetime=2020/06/27 19:07:51"
-        let param2 = "tag=usercar&regId=1&vin=11-111-11-111&make=Ford&model=Raptor&modelyear=2019"
 
-        self.apiCalls(parameters: param2) { (response) in
-
-            print("Api Response: \(response)")
-
-        }
-
-        
-    }
     
 }
 

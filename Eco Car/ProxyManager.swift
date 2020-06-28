@@ -16,7 +16,7 @@ class ProxyManager: NSObject {
     private let appName = "Eco Car"
     private let appId = "1505"
     private let appIpAddress = "m.sdl.tools"
-    private let appPort: UInt16 = 17215
+    private let appPort: UInt16 = 12550
     
 
     // Manager
@@ -50,17 +50,17 @@ class ProxyManager: NSObject {
         }
 
         lifecycleConfiguration.shortAppName = appName
+        
+        let lockScreenConfiguration = SDLLockScreenConfiguration.enabled()
+        lockScreenConfiguration.displayMode = .requiredOnly
 
-        let configuration = SDLConfiguration(lifecycle: lifecycleConfiguration, lockScreen: .enabled(), logging: .default(), fileManager: .default(), encryption: nil)
+
+        let configuration = SDLConfiguration(lifecycle: lifecycleConfiguration, lockScreen: lockScreenConfiguration, logging: .default(), fileManager: .default(), encryption: nil)
 
         sdlManager = SDLManager(configuration: configuration, delegate: self)
         sdlManager.delegate = self
 
-        let lockScreenConfiguration = SDLLockScreenConfiguration.enabled()
-        lockScreenConfiguration.displayMode = .always
-
-
-
+        // Gets Updates from the Car Device
         self.sdlManager.subscribe(to: .SDLDidReceiveVehicleData, observer: self, selector: #selector(self.vehicleDataAvailable(_:)))
         
         sdlManager.screenManager.textField1 = "Welcome"
@@ -148,7 +148,15 @@ extension ProxyManager {
             }
             
             if let bodyInfo = response.bodyInformation {
-                let info = ["engineStatus" : bodyInfo.ignitionStatus.rawValue.rawValue]
+                
+                let igStatus = bodyInfo.ignitionStatus.rawValue.rawValue
+                if igStatus == "START" {
+//                    let lockScreenConfiguration = SDLLockScreenConfiguration.enabled()
+//                    lockScreenConfiguration.displayMode = .always
+//                    sdlManager.
+                }
+                
+                let info = ["engineStatus" : igStatus]
                 NotificationCenter.default.post(name: NSNotification.Name(rawValue: "uiInfoUpdate"), object: nil, userInfo: info)
             }
         }
