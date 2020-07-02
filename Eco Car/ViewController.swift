@@ -33,6 +33,8 @@ class ViewController: UIViewController {
     
     var vinNum = String()
     var vehicleInfo = SDLVehicleType()
+    
+    let api = ApiSupporter()
         
 
     override func viewDidLoad() {
@@ -139,7 +141,7 @@ class ViewController: UIViewController {
         // MARK: Sending Trip Details
         let params1 = "tag=addcartripdetails&regId=1&carId=1&startodomter=\(self.startO)&endodometer=\(self.endO)&fuelused=\(fuelUsed)&tripavg=\(tripAvg)&tripstartdatetime=\(self.startTime)&tripenddatetime=\(self.endTime)"
 
-        self.apiCalls(parameters: params1) { (response) in
+        api.apiCalls(parameters: params1) { (response) in
 
             print("Trip Details Sent: \(response)")
 
@@ -155,7 +157,7 @@ class ViewController: UIViewController {
 
         let params2 = "tag=usercar&regId=1&vin=\(vin)&make=\(make!)&model=\(model!)&modelyear=\(modelYear!)"
 
-        self.apiCalls(parameters: params2) { (response) in
+        api.apiCalls(parameters: params2) { (response) in
 
             print("Vehicle Data Sent: \(response)")
 
@@ -186,34 +188,41 @@ class ViewController: UIViewController {
     
     
     
-    func apiCalls(parameters: String, complete: @escaping ((String) -> ())) {
+//    func apiCalls(parameters: String, complete: @escaping ((String) -> ())) {
+//
+////        let url = "http://devproj.live/newdev/ecoelectric/api/carjapi.php"
+//        var request = URLRequest(url: URL(string: carUrl)!)
+//        request.httpBody = parameters.data(using: .utf8)
+//        request.httpMethod = "POST"
+//
+//        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+//            guard let data = data, error == nil else {
+//                // check for fundamental networking error
+//                print("error=\(error!)")
+//                return
+//            }
+//
+//            let responseString = String(data: data, encoding: .utf8)
+//
+//            guard let finalResponse = responseString?.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines) else {
+//                print("Some error while trimming")
+//                return
+//            }
+//
+//            complete(finalResponse)
+//
+//        }
+//        task.resume()
+//
+//    }
+
+    
+    @IBAction func gotoProfile(_ sender: UIBarButtonItem) {
         
-        let url = "http://devproj.live/newdev/ecoelectric/api/carjapi.php"
-        var request = URLRequest(url: URL(string: url)!)
-        request.httpBody = parameters.data(using: .utf8)
-        request.httpMethod = "POST"
-        
-        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
-            guard let data = data, error == nil else {
-                // check for fundamental networking error
-                print("error=\(error!)")
-                return
-            }
-            
-            let responseString = String(data: data, encoding: .utf8)
-            
-            guard let finalResponse = responseString?.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines) else {
-                print("Some error while trimming")
-                return
-            }
-            
-            complete(finalResponse)
-                        
-        }
-        task.resume()
+        let profile = storyboard?.instantiateViewController(withIdentifier: "UserProfileVC") as! UserProfileVC
+        navigationController?.pushViewController(profile, animated: true)
         
     }
-
     
 }
 

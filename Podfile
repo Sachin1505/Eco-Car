@@ -9,6 +9,7 @@ target 'Eco Car' do
 
   pod ‘SmartDeviceLink’
   pod ‘SmartDeviceLink/Swift’
-  
+  pod 'CropViewController'
+
 
 end

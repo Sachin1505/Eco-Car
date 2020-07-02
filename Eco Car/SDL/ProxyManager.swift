@@ -16,7 +16,7 @@ class ProxyManager: NSObject {
     private let appName = "Eco Car"
     private let appId = "1505"
     private let appIpAddress = "m.sdl.tools"
-    private let appPort: UInt16 = 12550
+    private let appPort: UInt16 = 12302
     
 
     // Manager

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0A092368668585E84C52128B /* Pods_Eco_Car.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38B52F8A8D34E5A1CA78BDE9 /* Pods_Eco_Car.framework */; };
+		D703ABAE24AD0180007EC7E0 /* ApiSupporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D703ABAD24AD0180007EC7E0 /* ApiSupporter.swift */; };
 		D756779824A33B0700A0A0F1 /* carLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = D756779724A33B0700A0A0F1 /* carLogo.png */; };
 		D7AEE9F724A1D3530089C9F5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7AEE9F624A1D3530089C9F5 /* AppDelegate.swift */; };
 		D7AEE9FB24A1D3530089C9F5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7AEE9FA24A1D3530089C9F5 /* ViewController.swift */; };
@@ -15,12 +16,15 @@
 		D7AEEA0024A1D3590089C9F5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D7AEE9FF24A1D3590089C9F5 /* Assets.xcassets */; };
 		D7AEEA0324A1D3590089C9F5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D7AEEA0124A1D3590089C9F5 /* LaunchScreen.storyboard */; };
 		D7AEEA0B24A23C370089C9F5 /* ProxyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7AEEA0A24A23C370089C9F5 /* ProxyManager.swift */; };
+		D7B9400024ACEFCF0071B890 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B93FFF24ACEFCF0071B890 /* Constants.swift */; };
+		D7E36C5724AB914000F9F37C /* UserProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7E36C5624AB914000F9F37C /* UserProfileVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		37D66803A2BD5FB8ED31139E /* Pods-Eco Car.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Eco Car.release.xcconfig"; path = "Target Support Files/Pods-Eco Car/Pods-Eco Car.release.xcconfig"; sourceTree = "<group>"; };
 		38B52F8A8D34E5A1CA78BDE9 /* Pods_Eco_Car.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Eco_Car.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB59731822CCE06DD6FC48FE /* Pods-Eco Car.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Eco Car.debug.xcconfig"; path = "Target Support Files/Pods-Eco Car/Pods-Eco Car.debug.xcconfig"; sourceTree = "<group>"; };
+		D703ABAD24AD0180007EC7E0 /* ApiSupporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiSupporter.swift; sourceTree = "<group>"; };
 		D756779724A33B0700A0A0F1 /* carLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = carLogo.png; sourceTree = "<group>"; };
 		D75677A624A38C7D00A0A0F1 /* SmartDeviceLink.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SmartDeviceLink.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7AEE9F324A1D3530089C9F5 /* Eco Car.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Eco Car.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -31,6 +35,8 @@
 		D7AEEA0224A1D3590089C9F5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D7AEEA0424A1D3590089C9F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D7AEEA0A24A23C370089C9F5 /* ProxyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProxyManager.swift; sourceTree = "<group>"; };
+		D7B93FFF24ACEFCF0071B890 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		D7E36C5624AB914000F9F37C /* UserProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,15 +91,34 @@
 			isa = PBXGroup;
 			children = (
 				D7AEE9F624A1D3530089C9F5 /* AppDelegate.swift */,
-				D7AEE9FA24A1D3530089C9F5 /* ViewController.swift */,
-				D7AEEA0A24A23C370089C9F5 /* ProxyManager.swift */,
 				D7AEE9FC24A1D3530089C9F5 /* Main.storyboard */,
+				D7E36C5524AB911300F9F37C /* SDL */,
+				D7AEE9FA24A1D3530089C9F5 /* ViewController.swift */,
+				D7C1148424ADD08500B46966 /* ApiCalls */,
+				D7E36C5624AB914000F9F37C /* UserProfileVC.swift */,
 				D7AEE9FF24A1D3590089C9F5 /* Assets.xcassets */,
 				D756779724A33B0700A0A0F1 /* carLogo.png */,
 				D7AEEA0124A1D3590089C9F5 /* LaunchScreen.storyboard */,
 				D7AEEA0424A1D3590089C9F5 /* Info.plist */,
 			);
 			path = "Eco Car";
+			sourceTree = "<group>";
+		};
+		D7C1148424ADD08500B46966 /* ApiCalls */ = {
+			isa = PBXGroup;
+			children = (
+				D7B93FFF24ACEFCF0071B890 /* Constants.swift */,
+				D703ABAD24AD0180007EC7E0 /* ApiSupporter.swift */,
+			);
+			path = ApiCalls;
+			sourceTree = "<group>";
+		};
+		D7E36C5524AB911300F9F37C /* SDL */ = {
+			isa = PBXGroup;
+			children = (
+				D7AEEA0A24A23C370089C9F5 /* ProxyManager.swift */,
+			);
+			path = SDL;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -213,8 +238,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				D7AEE9FB24A1D3530089C9F5 /* ViewController.swift in Sources */,
+				D7B9400024ACEFCF0071B890 /* Constants.swift in Sources */,
 				D7AEE9F724A1D3530089C9F5 /* AppDelegate.swift in Sources */,
+				D703ABAE24AD0180007EC7E0 /* ApiSupporter.swift in Sources */,
 				D7AEEA0B24A23C370089C9F5 /* ProxyManager.swift in Sources */,
+				D7E36C5724AB914000F9F37C /* UserProfileVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
