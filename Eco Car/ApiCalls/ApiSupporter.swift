@@ -11,9 +11,9 @@ import UIKit
 class ApiSupporter {
     
 
-    func apiCalls(parameters: String, complete: @escaping ((String) -> ())) {
+    func apiCalls(url: String, parameters: String, complete: @escaping ((String) -> ())) {
         
-        var request = URLRequest(url: URL(string: carUrl)!)
+        var request = URLRequest(url: URL(string: url)!)
         request.httpBody = parameters.data(using: .utf8)
         request.httpMethod = "POST"
         

@@ -17,5 +17,6 @@ let carUrl = baseUrl + "carjapi.php"
 
 let imageUploadUrl = baseUrl + "japi.php"
 
+let logUrl = "http://devprojects.live/newdev/ecoelectric/api/japi.php"
 
 

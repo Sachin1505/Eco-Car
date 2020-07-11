@@ -12,11 +12,13 @@ import SmartDeviceLink
 
 class ProxyManager: NSObject {
     
+    let api = ApiSupporter()
+
 //TODO:- Change appID, port and ipAddress here.
     private let appName = "Eco Car"
     private let appId = "1505"
     private let appIpAddress = "m.sdl.tools"
-    private let appPort: UInt16 = 12302
+    private let appPort: UInt16 = 19906
     
 
     // Manager
@@ -52,7 +54,7 @@ class ProxyManager: NSObject {
         lifecycleConfiguration.shortAppName = appName
         
         let lockScreenConfiguration = SDLLockScreenConfiguration.enabled()
-        lockScreenConfiguration.displayMode = .requiredOnly
+        lockScreenConfiguration.displayMode = .never
 
 
         let configuration = SDLConfiguration(lifecycle: lifecycleConfiguration, lockScreen: lockScreenConfiguration, logging: .default(), fileManager: .default(), encryption: nil)
@@ -64,6 +66,9 @@ class ProxyManager: NSObject {
         self.sdlManager.subscribe(to: .SDLDidReceiveVehicleData, observer: self, selector: #selector(self.vehicleDataAvailable(_:)))
         
         sdlManager.screenManager.textField1 = "Welcome"
+        
+        
+//        let navigationSupported = sdlManager.systemCapabilityManager.navigationCapability
 
     }
 
@@ -73,6 +78,16 @@ class ProxyManager: NSObject {
             if success {
 
                 print("SDL Connected Successfully")
+                
+                let logTitle = "sdlManager.start line 82 ProxyManager"
+                let logDesc = "SDL Connected Successfully"
+
+                let params = "tag=testlog&logtitle=\(logTitle)&logdesc=\(logDesc)"
+                self.api.apiCalls(url: logUrl, parameters: params) { (response) in
+                    print("newLevel != .none && oldLevel == .none")
+                    print("resp: \(response)")
+                }
+
 
             }
         }
@@ -95,19 +110,106 @@ extension ProxyManager: SDLManagerDelegate {
       if newLevel != .none && oldLevel == .none {
           // This is our first time in a non-NONE state
           firstHMILevel = newLevel
+        
+            getVihicleData()
+        
+        let logTitle = "ios hmiLevel if"
+        let logDesc = "Calling getVihicleData line 114 ProxyManager"
 
+        let params = "tag=testlog&logtitle=\(logTitle)&logdesc=\(logDesc)"
+        api.apiCalls(url: logUrl, parameters: params) { (response) in
+            print("newLevel != .none && oldLevel == .none")
+            print("resp: \(response)")
+        }
+      } else {
+        
         getVihicleData()
-      }
+
+        let logTitle = "ios hmiLevel else"
+        let logDesc = "Calling getVihicleData line 126 ProxyManager"
+
+        let params = "tag=testlog&logtitle=\(logTitle)&logdesc=\(logDesc)"
+        api.apiCalls(url: logUrl, parameters: params) { (response) in
+            print("Else statemnet")
+            print("resp: \(response)")
+        }
+    }
 
 
       switch newLevel {
-      case .full: break                // The SDL app is in the foreground
+      case .full:                 // The SDL app is in the foreground
           // Always try to show the initial state to guard against some possible weird states. Duplicates will be ignored by Core.
-//          showInitialData()
-      case .limited: break        // An active NAV or MEDIA SDL app is in the background
-      case .background: break     // The SDL app is not in the foreground
-      case .none: break           // The SDL app is not yet running
-      default: break
+        print("didChangeToLevel : Full")
+        getVihicleData()
+        
+        let logTitle = "ios hmiLevel = Full"
+        let logDesc = "calling getVihicleData from line 143 ProxyManager"
+
+        let params = "tag=testlog&logtitle=\(logTitle)&logdesc=\(logDesc)"
+        api.apiCalls(url: logUrl, parameters: params) { (response) in
+            print("Fluu Level")
+            print("resp: \(response)")
+        }
+
+        break
+        
+      case .limited:        // An active NAV or MEDIA SDL app is in the background
+        print("didChangeToLevel : Limited")
+        getVihicleData()
+        
+        let logTitle = "ios hmiLevel = limited"
+        let logDesc = "calling getVihicleData from line 158 ProxyManager"
+
+        let params = "tag=testlog&logtitle=\(logTitle)&logdesc=\(logDesc)"
+        api.apiCalls(url: logUrl, parameters: params) { (response) in
+            print("Limited Level")
+            print("resp: \(response)")
+        }
+
+        break
+        
+      case .background:     // The SDL app is not in the foreground
+        print("didChangeToLevel : background")
+        getVihicleData()
+        
+        let logTitle = "ios hmiLevel = background"
+        let logDesc = "calling getVihicleData from line 173 ProxyManager"
+
+        let params = "tag=testlog&logtitle=\(logTitle)&logdesc=\(logDesc)"
+        api.apiCalls(url: logUrl, parameters: params) { (response) in
+            print("Background Level")
+            print("resp: \(response)")
+        }
+
+        break
+        
+      case .none:           // The SDL app is not yet running
+        print("didChangeToLevel : None")
+        getVihicleData()
+        
+        let logTitle = "ios hmiLevel = None"
+        let logDesc = "calling getVihicleData from line 188 ProxyManager"
+
+        let params = "tag=testlog&logtitle=\(logTitle)&logdesc=\(logDesc)"
+        api.apiCalls(url: logUrl, parameters: params) { (response) in
+            print("None Level")
+            print("resp: \(response)")
+        }
+
+        break
+        
+      default:
+        getVihicleData()
+        
+        let logTitle = "ios hmiLevel = default"
+        let logDesc = "calling getVihicleData from line 202 ProxyManager"
+
+        let params = "tag=testlog&logtitle=\(logTitle)&logdesc=\(logDesc)"
+        api.apiCalls(url: logUrl, parameters: params) { (response) in
+            print("If Statement")
+            print("resp: \(response)")
+        }
+        break
       }
   }
 
@@ -150,11 +252,11 @@ extension ProxyManager {
             if let bodyInfo = response.bodyInformation {
                 
                 let igStatus = bodyInfo.ignitionStatus.rawValue.rawValue
-                if igStatus == "START" {
-//                    let lockScreenConfiguration = SDLLockScreenConfiguration.enabled()
-//                    lockScreenConfiguration.displayMode = .always
-//                    sdlManager.
-                }
+//                if igStatus == "START" {
+////                    let lockScreenConfiguration = SDLLockScreenConfiguration.enabled()
+////                    lockScreenConfiguration.displayMode = .always
+////                    sdlManager.
+//                }
                 
                 let info = ["engineStatus" : igStatus]
                 NotificationCenter.default.post(name: NSNotification.Name(rawValue: "uiInfoUpdate"), object: nil, userInfo: info)
@@ -189,8 +291,23 @@ extension ProxyManager {
                             "fuel" : fuel.doubleValue,
                             "engineStatus" : bodyInfo.ignitionStatus.rawValue.rawValue,
                             "vin" : vin] as [String : Any]
+                
+                let logTitle = "First time getting data"
+                let date = Date()
+                let formatter = DateFormatter()
+                formatter.dateFormat = "yyyy-mm-dd hh:mm:ss.s"
+                let dateStr = formatter.string(from: date)
+                let logDesc = "odometer = \(odo.stringValue) & fuel = \(fuel.stringValue) & engine status = \(bodyInfo.ignitionStatus.rawValue.rawValue) & vin = \(vin) & date = \(dateStr)"
+
+                let params = "tag=testlog&logtitle=\(logTitle)&logdesc=\(logDesc)"
+                self.api.apiCalls(url: logUrl, parameters: params) { (response) in
+                    print("If Statement")
+                    print("resp: \(response)")
+                }
+
 
                 NotificationCenter.default.post(name: NSNotification.Name(rawValue: "uiInfoUpdate"), object: nil, userInfo: info)
+                
             }
             
         }, completionHandler: nil)
@@ -200,6 +317,33 @@ extension ProxyManager {
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "uiInfoUpdate"), object: nil, userInfo: ["vehicleInfo" : vehicleInfo])
 
     }
+    
+//    func getOEMCustonData() {
+//        let getCustomData = SDLGetVehicleData()
+////        getCustomData.setOEMCustom("OEM-X-Vehicle-Data", withVehicleDataState: true)
+//        getCustomData.setOEMCustomVehicleData(name: "Vehicle-Data", state: true)
+//        sdlManager.send(request: getCustomData) { (request, response, error) in
+////            guard let response = response as? SDLGetVehicleDataResponse else { return }
+//
+//            if let response = response as? SDLGetVehicleDataResponse {
+//
+//                print("Resp: \(response)")
+//
+//                guard let fuel = response.instantFuelConsumption, let odo = response.odometer, let bodyInfo = response.bodyInformation, let vin = response.vin else { return }
+//
+//                let info = ["odometer" : odo.doubleValue,
+//                            "fuel" : fuel.doubleValue,
+//                            "engineStatus" : bodyInfo.ignitionStatus.rawValue.rawValue,
+//                            "vin" : vin] as [String : Any]
+//
+////                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "uiInfoUpdate"), object: nil, userInfo: info)
+//            }
+//
+//
+////            guard let customVehicleData = response.getOEMCustomVehicleData("OEM-X-Vehicle-Data") as? SDLGetVehicleDataResponse else { return }
+////            print("customVehicleData: \(customVehicleData)")
+//        }
+//    }
     
     
     func displayOnManticore() {

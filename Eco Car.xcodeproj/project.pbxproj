@@ -92,8 +92,8 @@
 			children = (
 				D7AEE9F624A1D3530089C9F5 /* AppDelegate.swift */,
 				D7AEE9FC24A1D3530089C9F5 /* Main.storyboard */,
-				D7E36C5524AB911300F9F37C /* SDL */,
 				D7AEE9FA24A1D3530089C9F5 /* ViewController.swift */,
+				D7E36C5524AB911300F9F37C /* SDL */,
 				D7C1148424ADD08500B46966 /* ApiCalls */,
 				D7E36C5624AB914000F9F37C /* UserProfileVC.swift */,
 				D7AEE9FF24A1D3590089C9F5 /* Assets.xcassets */,
